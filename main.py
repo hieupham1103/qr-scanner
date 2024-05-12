@@ -20,9 +20,17 @@ def search():
     for row in data:
         if len(row) > 1:
             print(f"\"{code.get()}\"")
-            if row[1] == f"\"{code.get()}\"":    
-                output.set(row[0])
+            if row[1] == f"\"{code.get()}\"" or row[1] == code.get(): 
+                name = "unknown" 
+                if len(row) >= 3:
+                    name = row[2]
+                description = f"""ID: {row[0]}
+                Code: {row[1]}
+                Name: {name}
+                """  
+                output.set(description)
                 return
+
         
 def scan_button():
     global SCAN_ON
