@@ -2,8 +2,7 @@ import csv
 from pyzbar.pyzbar import decode
 import time
 import tkinter as tk
-from tkinter import filedialog
-import ttkbootstrap as ttk
+from tkinter import filedialog, ttk
 from PIL import Image, ImageTk
             
 
@@ -38,6 +37,12 @@ window = tk.Tk()
 window.title("Prom scanner")
 window.geometry('1000x800')
 
+def search_enter(event):
+    search()
+window.bind('<Enter>',search_enter)
+
+
+
 file_path_string = tk.StringVar()
 file_path = ttk.Label(master = window,
             text = ".....",
@@ -55,7 +60,6 @@ search_button = ttk.Button(master = input_frame,
                            text = "Search",
                            command = search
                            )
-search_button.bind('<Enter>',search)
 input_frame.pack()
 code_input.pack(side = 'left')
 search_button.pack(side = 'left')
