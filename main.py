@@ -37,10 +37,11 @@ window = tk.Tk()
 window.title("Prom scanner")
 window.geometry('1000x800')
 
-def search_enter(event):
+def search_bind(event = None):
     search()
-window.bind('<Enter>',search_enter)
+    code_input.focus()
 
+window.bind("<Return>", search_bind)
 
 
 file_path_string = tk.StringVar()
